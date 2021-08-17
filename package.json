@@ -4,7 +4,6 @@
   "description": "Fixed table thead. Pure javascript",
   "keywords": ["js", "table", "fixed"],
   "scripts": {
-    "build": "webpack",
     "test": "command for testing package"
   },
   "repository": {
