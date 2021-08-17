@@ -1,8 +1,12 @@
 {
   "name": "fixed-table-clean-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Fixed table thead. Pure javascript",
-  "keywords": ["js", "table", "fixed"],
+  "keywords": [
+    "js",
+    "table",
+    "fixed"
+  ],
   "scripts": {
     "test": "command for testing package"
   },
