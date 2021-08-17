@@ -1,7 +1,8 @@
-# fixed_table
+# fixed-table-clean-js
 
 Install:  
-`npm install fixed_table`  
+`npm install fixed-table-clean-js`  
+
 Create table (example):
 ```
 <table id="fixedTable">
@@ -33,8 +34,9 @@ Create table (example):
 ```
 
 Init:  
-import fixedTable from 'fixed-table';  
 ```
+import fixedTable from 'fixed-table-clean-js';  
+
 try{
     fixedTable({
         tableSelector: "#fixedTable"
