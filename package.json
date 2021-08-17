@@ -1,0 +1,20 @@
+{
+  "name": "fixed-table-clean-js",
+  "version": "1.0.0",
+  "description": "Fixed table thead. Pure javascript",
+  "keywords": ["js", "table", "fixed"],
+  "scripts": {
+    "build": "webpack",
+    "test": "command for testing package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShkrabovLeonid/fixed-table-clean-js.git"
+  },
+  "author": "ShkrabovLeonid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShkrabovLeonid/fixed-table-clean-js/issues"
+  },
+  "homepage": "https://github.com/ShkrabovLeonid/fixed-table-clean-js/blob/main/README.md"
+}
