@@ -1,0 +1,24 @@
+{
+  "name": "demo_fixed-table-clean-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "build": "npx webpack && cp src/index.html dist/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShkrabovLeonid/fixed-table-clean-js.git"
+  },
+  "author": "ShkrabovLeonid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShkrabovLeonid/fixed-table-clean-js/issues"
+  },
+  "homepage": "https://github.com/ShkrabovLeonid/fixed-table-clean-js#readme",
+  "dependencies": {
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
+  }
+}

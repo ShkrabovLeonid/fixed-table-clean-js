@@ -1,84 +1,84 @@
 "use strict";
 
-function fixedTable({tableSelector}) {
-    const table = document.querySelector(tableSelector),
-          allTdTable = table.querySelectorAll("tbody > tr:nth-child(1) > td"),
-          allThTable = table.querySelectorAll("thead > tr > th"),
-          fixedSelectorHeadTR = table.querySelector("thead > tr"),
-          fixedSelectorBodyTR = table.querySelectorAll("tbody > tr");
-
-    init();
-
-    function init() {
-        fixedHeaderTable();
-        events();
+export default class fixedTable {
+    constructor({tableSelector}){
+        this.table = document.querySelector(tableSelector),
+        this.allTdTable = this.table.querySelectorAll("tbody > tr:nth-child(1) > td"),
+        this.allThTable = this.table.querySelectorAll("thead > tr > th"),
+        this.fixedSelectorHeadTR = this.table.querySelector("thead > tr"),
+        this.fixedSelectorBodyTR = this.table.querySelectorAll("tbody > tr");
+        this.init();
+    }
+    
+    init() {
+        this.fixedHeaderTable();
+        this.events();
     }
 
-    function fixedHeaderTable() {
+    fixedHeaderTable() {
         let width = [];
-        for (let i = 0; i < allThTable.length; i++) {
-            let widthTd = getComputedStyle(allTdTable[i]).width.replace(/px/g, '');
-            let widthTh = getComputedStyle(allThTable[i]).width.replace(/px/g, '');
+        for (let i = 0; i < this.allThTable.length; i++) {
+            let widthTd = getComputedStyle(this.allTdTable[i]).width.replace(/px/g, '');
+            let widthTh = getComputedStyle(this.allThTable[i]).width.replace(/px/g, '');
             width.push((widthTd > widthTh) ?  widthTd : widthTh);
             let widthHeader = (widthTd > widthTh) ?  widthTd : widthTh;
-            allThTable[i].style.width = `${widthHeader}px`;
+            this.allThTable[i].style.width = `${widthHeader}px`;
         }
-        setOrDelCssSelector(width, 'flex', '42px');
+        this.setOrDelCssSelector(width, 'flex', '42px');
     }
-    function cleardisplay() {
-        for (let i = 0; i < allThTable.length; i++) {
-            allThTable[i].style.width = '';
-            allThTable[i].style.backgroundColor = '';
-            allThTable[i].style.color = '';
+
+    cleardisplay() {
+        for (let i = 0; i < this.allThTable.length; i++) {
+            this.allThTable[i].style.width = '';
+            this.allThTable[i].style.backgroundColor = '';
+            this.allThTable[i].style.color = '';
         }
-        setOrDelCssSelector('', '', '');
+        this.setOrDelCssSelector('', '', '');
     }
-    function setOrDelCssSelector(widthArr, flex, px) {
-        fixedSelectorBodyTR.forEach(element => {
+
+    setOrDelCssSelector(widthArr, flex, px) {
+        this.fixedSelectorBodyTR.forEach(element => {
             element.style.display = flex;
             for (let i = 0; i < element.children.length; i++) {
                 element.children[i].style.width = (widthArr === '') ? '' : `${widthArr[i]}px`;
             }
         });
-        fixedSelectorHeadTR.parentElement.style.display = flex;
-        fixedSelectorHeadTR.parentElement.style.height = px;
-        fixedSelectorHeadTR.style.display = flex;
+        this.fixedSelectorHeadTR.parentElement.style.display = flex;
+        this.fixedSelectorHeadTR.parentElement.style.height = px;
+        this.fixedSelectorHeadTR.style.display = flex;
     }
 
-    function topFixed() {
-        console.log('topFixed');
-        let tableHeight = +getComputedStyle(table).height.replace(/px/g, '');
-        let indentBeforeTable = table.offsetTop;
+    topFixed() {
+        let tableHeight = +getComputedStyle(this.table).height.replace(/px/g, '');
+        let indentBeforeTable = this.table.offsetTop;
         let scrollPosition = window.pageYOffset;
 
         if (scrollPosition > indentBeforeTable && scrollPosition < (indentBeforeTable + tableHeight)) {
-            fixedSelectorHeadTR.style.top = '0';
-            fixedSelectorHeadTR.style.position = 'fixed';
-            horizontalScroll();
+            this.fixedSelectorHeadTR.style.top = '0';
+            this.fixedSelectorHeadTR.style.position = 'fixed';
+            this.horizontalScroll();
         }
         if (scrollPosition < indentBeforeTable) {
-            fixedSelectorHeadTR.style.top = '';
-            fixedSelectorHeadTR.style.position = '';
+            this.fixedSelectorHeadTR.style.top = '';
+            this.fixedSelectorHeadTR.style.position = '';
         }
         if (scrollPosition > (indentBeforeTable + tableHeight)) {
-            fixedSelectorHeadTR.style.top = '';
-            fixedSelectorHeadTR.style.position = '';
+            this.fixedSelectorHeadTR.style.top = '';
+            this.fixedSelectorHeadTR.style.position = '';
         }   
     }
 
-    function horizontalScroll() {
-        fixedSelectorHeadTR.style.left = `-${window.pageXOffset}px`;
+    horizontalScroll() {
+        this.fixedSelectorHeadTR.style.left = `-${window.pageXOffset}px`;
     }
 
-    function events() {
+    events() {
         window.addEventListener('resize', () => {
-            cleardisplay();
-            fixedHeaderTable();
+            this.cleardisplay();
+            this.fixedHeaderTable();
         });
         window.addEventListener('scroll', ()=>{
-            topFixed();
+            this.topFixed();
         });   
     }
 }
-
-module.exports = fixedTable;
