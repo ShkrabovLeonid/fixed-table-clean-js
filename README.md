@@ -38,9 +38,7 @@ Init:
 import fixedTable from 'fixed-table-clean-js';  
 
 try{
-    fixedTable({
-        tableSelector: "#fixedTable"
-    });
+    new fixedTable({tableSelector: "#fixedTable"});
 }catch (e){
     console.error(e);
 }
