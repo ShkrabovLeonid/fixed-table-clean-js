@@ -17,8 +17,11 @@
     "url": "https://github.com/ShkrabovLeonid/fixed-table-clean-js/issues"
   },
   "homepage": "https://github.com/ShkrabovLeonid/fixed-table-clean-js#readme",
-  "dependencies": {
+  "devDependencies": {
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "fixed-table-clean-js": "^1.0.4"
   }
 }
