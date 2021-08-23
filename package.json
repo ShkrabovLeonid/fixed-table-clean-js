@@ -1,6 +1,6 @@
 {
-  "name": "fixed-table-clean-js",
-  "version": "1.0.4",
+  "name": "@shkrabovleonid/fixed-table-clean-js",
+  "version": "1.0.5",
   "description": "Fixed table thead. Pure javascript",
   "keywords": [
     "js",
@@ -9,6 +9,9 @@
   ],
   "scripts": {
     "test": "command for testing package"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
